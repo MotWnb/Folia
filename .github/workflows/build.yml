@@ -9,12 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Print Git Version
-      run: git --version
-
-    - name: Try Git Fetch Manually
-      run: git fetch --verbose --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
-      continue-on-error: true
     - uses: actions/checkout@v4.1.1
       with:
         repository: 'papermc/folia'
@@ -27,8 +21,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build with Maven
-      run: mvn clean install -DskipTests
+    - name: Build with Gradle
+      run: ./gradlew build
 
     - name: Find Build Artifacts
       id: find_artifacts
