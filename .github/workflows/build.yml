@@ -9,6 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Print Git Version
+      run: git --version
+
+    - name: Try Git Fetch Manually
+      run: git fetch --verbose --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+      continue-on-error: true
     - uses: actions/checkout@v4.1.1
       with:
         repository: 'papermc/folia'
