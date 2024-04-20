@@ -31,6 +31,7 @@ jobs:
         echo "Found .jar files:"
         for file in $(find . -type f -name './build/*.jar'); do
           echo "  ${file}
+        done
         echo ::set-output name=artifact_path::$(find . -type f -name './build/*.jar')
 
 
