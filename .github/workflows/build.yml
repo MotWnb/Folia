@@ -40,8 +40,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag: ${{ github.sha }}
-        name: Folia Build ${{ github.sha }}
+        tag: v${{ github.run_number }}
+        name: Folia Build v${{ github.run_number }}
         draft: false
         prerelease: false
         generateReleaseNotes: false
