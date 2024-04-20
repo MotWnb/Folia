@@ -26,7 +26,7 @@ jobs:
 
     - name: Find Build Artifacts
       id: find_artifacts
-      run: echo ::set-output name=artifact_path::$(find . -type f -name '*.jar')
+      run: echo ::set-output name=artifact_path::$(find . -type f -name './build/*.jar')
 
     - name: Upload build artifacts
       uses: echapmanFromBunnings/upload-artifact@3.0.0
