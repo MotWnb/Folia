@@ -40,8 +40,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag: ${{ github.event.head_commit.id }}
-        name: Folia Build ${{ github.event.head_commit.id }}
+        tag: ${{ github.sha }}
+        name: Folia Build ${{ github.sha }}
         draft: false
         prerelease: false
         generateReleaseNotes: false
@@ -57,9 +57,6 @@ jobs:
         skipIfReleaseExists: false
         token: ${{ secrets.GITHUB_TOKEN }}
         updateOnlyUnreleased: false
-
-
-
 
     - name: Upload Release Asset
       uses: tanyagray/action-upload-release-asset@v1.1.3
