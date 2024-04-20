@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v4.1.1
       with:
         repository: 'papermc/folia'
-        ref: 'main'
+        ref: 'master'
         token: ${{ secrets.PAT }} # Replace PAT with your personal access token
 
     - name: Set up JDK 17
