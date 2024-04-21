@@ -28,9 +28,6 @@ jobs:
     - name: Build
       run: ./gradlew build
       
-    - name: Setup Debug Session
-      uses: csexton/debugger-action@master
-      
     - name: Find Build Artifacts
       id: find_artifacts
       run: echo ::set-output name=artifact_path::$(find . -type f -wholename './build/*.jar')
