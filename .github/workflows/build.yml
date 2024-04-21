@@ -13,7 +13,7 @@ jobs:
       with:
         repository: 'papermc/folia'
         ref: 'master'
-        token: ${{ secrets.PAT }} # Replace PAT with your personal access token
+        token: ${{ secrets.PAT }}
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4.2.1
@@ -33,7 +33,7 @@ jobs:
       
     - name: Find Build Artifacts
       id: find_artifacts
-      run: echo ::set-output name=artifact_path::$(find . -type f -name './build/*.jar')
+      run: echo ::set-output name=artifact_path::$(find . -type f -wholename './build/*.jar')
 
     - name: Upload build artifacts
       uses: echapmanFromBunnings/upload-artifact@3.0.0
