@@ -23,17 +23,13 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
-
+      
+    - name: Setup Debug Session
+      uses: csexton/debugger-action@master
+      
     - name: Find Build Artifacts
       id: find_artifacts
-      run: |
-        # 使用 -print0 选项以避免特殊字符问题
-        find . -type f -name './build/*.jar' -print0
-        # 处理输出
-        for file in $(find . -type f -name './build/*.jar' -print0); do
-          echo "  ${file}"
-        done
-        echo ::set-output name=artifact_path::$(find . -type f -name './build/*.jar' -print0)
+      run: echo ::set-output name=artifact_path::$(find . -type f -name './build/*.jar')
 
     - name: Upload build artifacts
       uses: echapmanFromBunnings/upload-artifact@3.0.0
