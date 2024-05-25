@@ -1,8 +1,6 @@
 name: Build Folia
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Run every hour
   workflow_dispatch: # Allow manual execution
 
 jobs:
